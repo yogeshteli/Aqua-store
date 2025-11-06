@@ -133,15 +133,21 @@ body {
       text-decoration: underline;
     }
 
-    .all-products-btn {
-      background-color: #ff9800;
-      color: white;
-      padding: 15px 15px;
-       margin-left: 15px;
-      border-radius: 32px;
-      font-weight: bold;
-      text-decoration: none;
-    }
+   .all-products-btn {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: auto;     /* 👈 pushes it left within flex layout */
+  margin-right: 20px;    /* 👈 small space from the edge */
+}
+
+.all-products-btn:hover {
+  background-color: #e68900;
+}
+
 
     .all-products-btn:hover {
       background-color: #e68900;
