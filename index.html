@@ -16,16 +16,61 @@
       margin: 0;
       padding: 0;
     }
+    .scroll-address.modern {
+  background-color: #00695c;
+  color: #ffffff;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 16px;
+  z-index: 1000;
+  padding: 10px 0;
+}
 
-    /* ---------- HEADER ---------- */
-    header {
-      background-color: #00695c;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      flex-wrap: wrap;
+.scroll-address.modern .text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+   /* ---------- HEADER & NAV ---------- */
+header {
+  background-color: #00695c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+
+  /* 👇 Added this part to make it stick to top */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 👇 Also add this just below that */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+
+  /* 👇 This creates space so your content doesn’t hide behind the header */
+  padding-top: 100px;
+}
+
     }
 
     header a {
@@ -344,6 +389,13 @@
     <img src="facebook.png" alt="Facebook">
   </a>
 </div>
+<!-- 🏪 Scrolling Shop Address -->
+<div class="scroll-address modern">
+  <div class="text">
+    📍 Fortune Fishies | Shop 15, Man Opus, Western Express Hwy, near SBI Bank, MIDC, Mira Road East, Thane, Mira Bhayandar, Maharashtra 401107 | 📞 +91-7039123760
+  </div>
+</div>
 
+  
 </body>
 </html>
