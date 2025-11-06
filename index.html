@@ -9,40 +9,128 @@
       font-family: Arial, sans-serif;
       background: #f5f5f5;
       margin: 0;
-      padding: 20px;
+      padding: 0;
     }
+
+    /* ---------- HEADER & NAV ---------- */
+    header {
+      background-color: #00695c;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    header img {
+      height: 60px;
+      border-radius: 8px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- SLIDING BANNER ---------- */
+    .banner {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      position: absolute;
+      animation: slide 10s infinite;
+      opacity: 0;
+    }
+
+    .banner img:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .banner img:nth-child(2) {
+      animation-delay: 5s;
+    }
+
+    @keyframes slide {
+      0% { opacity: 1; }
+      45% { opacity: 1; }
+      50% { opacity: 0; }
+      95% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
     h1 {
       text-align: center;
+      margin-top: 20px;
     }
+
     #searchInput {
-      width: 100%;
+      width: 90%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto;
       padding: 10px;
-      margin-bottom: 20px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 8px;
     }
+
     .product-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 20px;
+      padding: 20px;
     }
+
     .product {
       background: #fff;
       padding: 15px;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.2s;
     }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
     .product img {
       max-width: 100%;
       height: 150px;
       object-fit: cover;
       border-radius: 10px;
     }
+
     .product h4 {
       margin: 10px 0;
     }
+
     .product button {
       background-color: #25D366;
       color: white;
@@ -51,16 +139,40 @@
       border-radius: 8px;
       cursor: pointer;
     }
+
     .product button:hover {
       background-color: #1ebe5b;
     }
+
   </style>
 </head>
+
 <body>
-  <h1>🌿 Welcome To Fortune Fishies </h1>
+
+  <!-- HEADER -->
+  <header>
+    <img src="logo.png" alt="Fortune Fishies Logo"> <!-- upload logo.png -->
+    <nav>
+      <ul>
+        <li><a href="#">Aqua Plants</a></li>
+        <li><a href="#">Aquatic Remedies</a></li>
+        <li><a href="#">Aquatic Venture</a></li>
+        <li><a href="#">Accessories</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SLIDING ADVERTISEMENT BANNER -->
+  <div class="banner">
+    <img src="banner1.jpg" alt="Banner 1">
+    <img src="banner2.jpg" alt="Banner 2">
+  </div>
+
+  <h1>🌿 Welcome To Fortune Fishies</h1>
 
   <input type="text" id="searchInput" placeholder="Search products...">
 
+  <!-- PRODUCT LIST -->
   <div class="product-list">
     <div class="product">
       <img src="product1.jpg" alt="Plant 1">
@@ -105,11 +217,12 @@
 
     // 💬 WhatsApp Order Button
     function orderProduct(productName) {
-      const phone = "917039123760"; // 👉 replace with your WhatsApp number (no +)
+      const phone = "911234567890"; // 👉 replace with your WhatsApp number
       const message = `Hi, I want to order ${productName}`;
       const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
     }
   </script>
+
 </body>
 </html>
