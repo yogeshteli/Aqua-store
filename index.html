@@ -1,16 +1,15 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fortune Fishies All Products | Aqua Plants & Aquatic Products</title>
-  <meta name="description" content="Shop Fortune Fishies for the best Aqua Plants, Aquatic Remedies, and Fish Accessories. Fast WhatsApp ordering and delivery across India.">
-  <meta name="keywords" content="Fortune Fishies, Aqua Plants, Aquarium Plants, Aquatic Remedies, Aquatic Products, Fish Accessories">
-  <meta name="author" content="Fortune Fishies">
-  <style>
+  <meta name="description" content="Shop Fortune Fishies for Aqua Plants, Aquatic Remedies, and Fish Accessories. Fast WhatsApp ordering and delivery across India." />
+  <meta name="keywords" content="Fortune Fishies, Aqua Plants, Aquarium Plants, Aquatic Remedies, Aquatic Products, Fish Accessories" />
+  <meta name="author" content="Fortune Fishies" />
 
+  <style>
     body {
       font-family: Arial, sans-serif;
       background: #f5f5f5;
@@ -18,7 +17,7 @@
       padding: 0;
     }
 
-    /* ---------- HEADER & NAV ---------- */
+    /* ---------- HEADER ---------- */
     header {
       background-color: #00695c;
       color: white;
@@ -48,10 +47,6 @@
       gap: 20px;
     }
 
-    nav ul li {
-      display: inline;
-    }
-
     nav ul li a {
       color: white;
       text-decoration: none;
@@ -63,7 +58,6 @@
       text-decoration: underline;
     }
 
-    /* “All Products” Button */
     .all-products-btn {
       background-color: #ff9800;
       color: white;
@@ -71,7 +65,6 @@
       border-radius: 8px;
       font-weight: bold;
       text-decoration: none;
-      margin-left: 15px;
     }
 
     .all-products-btn:hover {
@@ -111,7 +104,7 @@
       100% { opacity: 1; }
     }
 
-    /* ---------- MAIN CONTENT ---------- */
+    /* ---------- PRODUCTS ---------- */
     h1 {
       text-align: center;
       margin-top: 20px;
@@ -178,33 +171,110 @@
 
   <!-- HEADER -->
   <header>
-    <!-- Clickable Logo -->
     <a href="https://yogeshteli.github.io/Aqua-store/" target="_blank">
-      <img src="logo.png" alt="Fortune Fishies Logo">
+      <img src="logo.png" alt="Fortune Fishies Logo" />
     </a>
 
     <nav>
       <ul>
-        <li><a href="#">Aqua Plants</a></li>
-        <li><a href="#">Aquatic Remedies</a></li>
-        <li><a href="#">Aquatic Venture</a></li>
-        <li><a href="#">Accessories</a></li>
+        <li><a href="#" data-category="all">All Products</a></li>
+        <li><a href="#" data-category="aqua-plants">Aqua Plants</a></li>
+        <li><a href="#" data-category="aquatic-remedies">Aquatic Remedies</a></li>
+        <li><a href="#" data-category="aquatic-venture">Aquatic Venture</a></li>
       </ul>
     </nav>
 
-    <!-- "All Products" Button -->
-    <a href="https://yogeshteli.github.io/Aqua-store/" target="_blank" class="all-products-btn">
-      🛒 Fortune Fishies All Products
-    </a>
+    <a href="https://yogeshteli.github.io/Aqua-store/" target="_blank" class="all-products-btn">🛒 Fortune Fishies All Products</a>
   </header>
 
-  <!-- SLIDING ADVERTISEMENT BANNER -->
+  <!-- BANNER -->
   <div class="banner">
-    <img src="banner1.jpg" alt="Banner 1">
-    <img src="banner2.jpg" alt="Banner 2">
+    <img src="banner1.jpg" alt="Banner 1" />
+    <img src="banner2.jpg" alt="Banner 2" />
   </div>
 
-  <!-- (keep your existing content below this) -->
   <h1>🌿 Welcome To Fortune Fishies</h1>
-  <input type="text" id="searchInput" placeholder="Search products...">
-  ...
+  <input type="text" id="searchInput" placeholder="Search products..." />
+
+  <!-- PRODUCTS -->
+  <div class="product-list">
+    <!-- Aqua Plants -->
+    <div class="product" data-category="aqua-plants">
+      <img src="images/aqua-plants/plant1.jpg" alt="Amazon Sword" />
+      <h4>Amazon Sword</h4>
+      <p>Beautiful aquatic plant for aquarium background.</p>
+      <button onclick="orderProduct('Amazon Sword')">Order on WhatsApp</button>
+    </div>
+
+    <div class="product" data-category="aqua-plants">
+      <img src="images/aqua-plants/plant2.jpg" alt="Java Fern" />
+      <h4>Java Fern</h4>
+      <p>Hardy plant, easy to care and maintain.</p>
+      <button onclick="orderProduct('Java Fern')">Order on WhatsApp</button>
+    </div>
+
+    <!-- Aquatic Remedies -->
+    <div class="product" data-category="aquatic-remedies">
+      <img src="images/aquatic-remedies/remedy1.jpg" alt="Anti-Chlorine" />
+      <h4>Anti-Chlorine</h4>
+      <p>Removes harmful chlorine from tap water instantly.</p>
+      <button onclick="orderProduct('Anti-Chlorine')">Order on WhatsApp</button>
+    </div>
+
+    <div class="product" data-category="aquatic-remedies">
+      <img src="images/aquatic-remedies/remedy2.jpg" alt="Water Clear" />
+      <h4>Water Clear</h4>
+      <p>Improves water clarity and removes turbidity.</p>
+      <button onclick="orderProduct('Water Clear')">Order on WhatsApp</button>
+    </div>
+
+    <!-- Aquatic Venture -->
+    <div class="product" data-category="aquatic-venture">
+      <img src="images/aquatic-venture/venture1.jpg" alt="Filter Media" />
+      <h4>Filter Media</h4>
+      <p>High-efficiency bio media for clean aquariums.</p>
+      <button onclick="orderProduct('Filter Media')">Order on WhatsApp</button>
+    </div>
+  </div>
+
+  <script>
+    // 🔍 Search Filter
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('keyup', function() {
+      const filter = searchInput.value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+      products.forEach(p => {
+        const name = p.querySelector('h4').textContent.toLowerCase();
+        p.style.display = name.includes(filter) ? '' : 'none';
+      });
+    });
+
+    // 🛒 WhatsApp Order
+    function orderProduct(productName) {
+      const phone = "911234567890"; // Replace with your WhatsApp number (no +)
+      const message = `Hi, I want to order ${productName}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+
+    // 🧭 Category Filter
+    const menuLinks = document.querySelectorAll('nav ul li a');
+    const allProducts = document.querySelectorAll('.product');
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = link.dataset.category;
+
+        allProducts.forEach(product => {
+          if (category === 'all') {
+            product.style.display = 'block';
+          } else {
+            product.style.display = product.dataset.category === category ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
