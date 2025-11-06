@@ -16,9 +16,9 @@
       margin: 0;
       padding: 0;
     }
-    .scroll-address.modern {
-  background-color: #00695c;
-  color: #ffffff;
+   .scroll-address.modern {
+  background-color: #ffffff;   /* white background */
+  color: #000000;              /* black text */
   font-weight: bold;
   overflow: hidden;
   white-space: nowrap;
@@ -28,7 +28,19 @@
   font-size: 16px;
   z-index: 1000;
   padding: 10px 0;
+ 
 }
+
+/* make link (address) text black and visible */
+.scroll-address.modern a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.scroll-address.modern a:hover {
+  color: #00695c;
+}
+
 
 .scroll-address.modern .text {
   display: inline-block;
