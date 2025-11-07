@@ -477,6 +477,94 @@ Fortune Fishies | Shop 15, Man Opus, Western Express Hwy, near SBI Bank, MIDC, M
 
 </div>
 
-  
+  <script>
+/* 🔍 Search Filter */
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keyup', function() {
+  const filter = searchInput.value.toLowerCase();
+  const products = document.querySelectorAll('.product');
+  products.forEach(p => {
+    const name = p.querySelector('h4').textContent.toLowerCase();
+    p.style.display = name.includes(filter) ? '' : 'none';
+  });
+});
+
+/* 🧭 Category Filter */
+const menuLinks = document.querySelectorAll('nav ul li a');
+const allProducts = document.querySelectorAll('.product');
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const category = link.dataset.category;
+    allProducts.forEach(product => {
+      if (category === 'all') {
+        product.style.display = 'block';
+      } else {
+        product.style.display = product.dataset.category === category ? 'block' : 'none';
+      }
+    });
+  });
+});
+
+/* 💬 WhatsApp Order Button */
+function orderProduct(productName) {
+  const phone = "917039123760"; // your WhatsApp number (no +)
+  const message = `Hi, I want to order ${productName}`;
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+/* 💳 ORDER NOW BUTTON with Form + Google Pay only */
+function orderNow(productName) {
+  const formHTML = `
+    <div id="orderFormModal" style="
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); display: flex; justify-content: center;
+      align-items: center; z-index: 2000;">
+      <div style="background: white; padding: 25px; border-radius: 12px; width: 320px; text-align: center;">
+        <h3>Order Now - ${productName}</h3>
+        <input id="custName" type="text" placeholder="Your Name" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <input id="custAddress" type="text" placeholder="Your Address" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <input id="custQty" type="number" placeholder="Quantity" min="1" value="1" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <button id="confirmOrder" style="background:#25D366; color:white; border:none; padding:10px 15px; border-radius:8px; cursor:pointer;">Confirm & Pay</button>
+        <button onclick="document.getElementById('orderFormModal').remove()" style="margin-left:10px; background:#ccc; border:none; padding:10px 15px; border-radius:8px; cursor:pointer;">Cancel</button>
+      </div>
+    </div>`;
+  document.body.insertAdjacentHTML("beforeend", formHTML);
+
+  document.getElementById("confirmOrder").addEventListener("click", function() {
+    const name = document.getElementById("custName").value.trim();
+    const address = document.getElementById("custAddress").value.trim();
+    const qty = document.getElementById("custQty").value.trim();
+
+    if (!name || !address || !qty) {
+      alert("⚠️ Please fill all fields before proceeding.");
+      return;
+    }
+
+    const upiID = "7039123760@okbizaxis"; // 🟢 Your UPI ID
+    const pricePerItem = 100;              // 🏷️ Change price per item if needed
+    const amount = pricePerItem * qty;
+    const payeeName = "Fortune Fishies";
+
+    // 👇 Google Pay–specific payment link
+    const gpayLink = `intent://pay?pa=${upiID}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR&tn=${encodeURIComponent('Order for ' + productName)}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+
+    // open GPay directly
+    window.location.href = gpayLink;
+
+    // after 4 sec open WhatsApp message
+    const phone = "917039123760";
+    const message = `📦 New Order Received!\n\nProduct: ${productName}\nQuantity: ${qty}\nName: ${name}\nAddress: ${address}\nAmount: ₹${amount}\n\nPlease verify payment and process the order.`;
+    const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    setTimeout(() => {
+      window.open(whatsappLink, '_blank');
+      document.getElementById('orderFormModal').remove();
+    }, 4000);
+  });
+}
+</script>
+
 </body>
 </html>
