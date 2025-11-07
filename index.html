@@ -1,28 +1,221 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fortune Fishies</title>
+  <title>Fortune Fishies All Products | Aqua Plants & Aquatic Products</title>
+  <meta name="description" content="Shop Fortune Fishies for Aqua Plants, Aquatic Remedies, and Fish Accessories. Fast WhatsApp ordering and delivery across India." />
+  <meta name="keywords" content="Fortune Fishies, Aqua Plants, Aquarium Plants, Aquatic Remedies, Aquatic Products, Fish Accessories" />
+  <meta name="author" content="Fortune Fishies" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #f5f5f5;
       margin: 0;
       padding: 0;
     }
+   .scroll-address.modern {
+  background-color: #000000;   /* white background */
+  color: #ffffff;              /* black text */
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 16px;
+  z-index: 1000;
+  padding: 10px 0;
+ 
+}
 
-    header {
-      background: #1a8c5f;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+/* make link (address) text black and visible */
+.scroll-address.modern a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.scroll-address.modern a:hover {
+  color: #00695c;
+}
+
+
+.scroll-address.modern .text {
+  display: inline-block;
+  padding-left: 99%;
+  animation: scrollText 25s linear infinite;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+   /* ---------- HEADER & NAV ---------- */
+header {
+  background-color: #00695c;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+
+  /* 👇 Added this part to make it stick to top */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 👇 Also add this just below that */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+
+  /* 👇 This creates space so your content doesn’t hide behind the header */
+  padding-top: 100px;
+}
+
     }
 
-    .products {
+    header a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header img {
+      height: 60px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-group img {
+  height: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-icon img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover animation (popup motion) */
+.social-icon img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+   .all-products-btn {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: auto;     /* 👈 pushes it left within flex layout */
+  margin-right: 20px;    /* 👈 small space from the edge */
+}
+
+.all-products-btn:hover {
+  background-color: #e68900;
+}
+
+
+    .all-products-btn:hover {
+      background-color: #e68900;
+    }
+
+    /* ---------- SLIDING BANNER ---------- */
+    .banner {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      position: absolute;
+      animation: slide 10s infinite;
+      opacity: 0;
+    }
+
+    .banner img:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .banner img:nth-child(2) {
+      animation-delay: 5s;
+    }
+
+    @keyframes slide {
+      0% { opacity: 1; }
+      45% { opacity: 1; }
+      50% { opacity: 0; }
+      95% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* ---------- PRODUCTS ---------- */
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #searchInput {
+      width: 90%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .product-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       gap: 20px;
@@ -30,153 +223,332 @@
     }
 
     .product {
-      background: white;
-      border-radius: 10px;
+      background: #fff;
       padding: 15px;
+      border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
     }
 
     .product img {
-      width: 100%;
+      max-width: 100%;
       height: 150px;
       object-fit: cover;
       border-radius: 10px;
     }
 
-    button {
-      background: #1a8c5f;
+    .product h4 {
+      margin: 10px 0;
+    }
+
+    .product button {
+      background-color: #25D366;
       color: white;
       border: none;
       padding: 10px 15px;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      margin-top: 10px;
     }
 
-    button:hover {
-      background: #15744d;
+    .product button:hover {
+      background-color: #1ebe5b;
     }
+    /* 🌐 Floating Social Buttons (Bottom-Right Corner) */
+.floating-social {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
 
-    /* Popup form */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
+.float-btn img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .popup-content {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-      text-align: left;
-    }
+/* Hover “pop” effect */
+.float-btn img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
 
-    .popup-content input, .popup-content textarea {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 8px;
-    }
-
-    .popup-content button {
-      width: 100%;
-    }
-
-    .close-btn {
-      background: red;
-    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Fortune Fishies – All Products</h1>
-</header>
-
-<div class="products">
-  <div class="product">
-    <img src="images/aquatic-plants/plant1.png" alt="Amazon Sword">
-    <h3>Amazon Sword</h3>
-    <p>₹199</p>
-    <button onclick="openForm('Amazon Sword', 199)">Order Now</button>
-  </div>
-
-  <div class="product">
-    <img src="images/aquatic-remedies/remedy1.png" alt="Water Clear">
-    <h3>Water Clear</h3>
-    <p>₹299</p>
-    <button onclick="openForm('Water Clear', 299)">Order Now</button>
-  </div>
+  <!-- HEADER -->
+  <header>
+   <div class="logo-group">
+  <a href="https://yogeshteli.github.io/Aqua-store/" target="_blank">
+    <img src="logo.png" alt="Fortune Fishies Logo">
+  </a>
+  <img src="logo1.png" alt="Partner Logo 1">
+  <img src="logo2.png" alt="Partner Logo 2">
 </div>
 
-<!-- Popup form -->
-<div id="orderPopup" class="popup">
-  <div class="popup-content">
-    <h3>Place Your Order</h3>
-    <label>Name:</label>
-    <input type="text" id="custName" placeholder="Enter your name" required>
+    <nav>
+      <ul>
+        <li><a href="#" data-category="all">All Products</a></li>
+        <li><a href="#" data-category="aqua-plants">Aqua Plants</a></li>
+        <li><a href="#" data-category="aquatic-remedies">Aquatic Remedies</a></li>
+        <li><a href="#" data-category="aquatic-venture">Aquatic Venture</a></li>
+      </ul>
+    </nav>
 
-    <label>Address:</label>
-    <textarea id="custAddress" placeholder="Enter your address" required></textarea>
+    <a href="https://yogeshteli.github.io/Aqua-store/" target="_blank" class="all-products-btn">🛒 Fortune Fishies All Products</a>
+  </header>
 
-    <label>Quantity:</label>
-    <input type="number" id="custQty" value="1" min="1">
-
-    <button id="payBtn">Pay Now</button>
-    <button class="close-btn" onclick="closeForm()">Cancel</button>
+  <!-- BANNER -->
+  <div class="banner">
+    <img src="banner1.jpg" alt="Banner 1" />
+    <img src="banner2.jpg" alt="Banner 2" />
   </div>
-</div>
 
+  <h1>🌿 Welcome To Fortune Fishies</h1>
+  <input type="text" id="searchInput" placeholder="Search products..." />
+
+  <!-- PRODUCTS -->
+  <div class="product-list">
+    <!-- Aqua Plants -->
+    <div class="product" data-category="aqua-plants">
+      <img src="images/aqua-plants/plant1.jpg" alt="Amazon Sword" />
+      <h4>Amazon Sword</h4>
+      <p>Beautiful aquatic plant for aquarium background.</p>
+     <button onclick="orderProduct('Amazon Sword')">Order on WhatsApp</button>
+<button onclick="orderNow('Amazon Sword')" style="background-color:#ff9800; margin-left:5px;">Order Now</button>
+
+    </div>
+
+    <div class="product" data-category="aqua-plants">
+      <img src="images/aqua-plants/plant2.jpg" alt="Java Fern" />
+      <h4>Java Fern</h4>
+      <p>Hardy plant, easy to care and maintain.</p>
+      <button onclick="orderProduct('Java Fern')">Order on WhatsApp</button>
+<button onclick="orderNow('Java Fern')" style="background-color:#ff9800; margin-left:5px;">Order Now</button>
+
+    </div>
+
+    <!-- Aquatic Remedies -->
+    <div class="product" data-category="aquatic-remedies">
+      <img src="images/aquatic-remedies/remedy1.png" alt="Anti-Chlorine" />
+      <h4>Anti-Chlorine</h4>
+      <p>Removes harmful chlorine from tap water instantly.</p>
+      <button onclick="orderProduct('Anti-Chlorine')">Order on WhatsApp</button>
+      <button onclick="orderNow('Anti-Chlorine')" style="background-color:#ff9800; margin-left:5px;">Order Now</button>
+
+    </div>
+
+    <div class="product" data-category="aquatic-remedies">
+      <img src="images/aquatic-remedies/remedy2.png" alt="Water Clear" />
+      <h4>Water Clear</h4>
+      <p>Improves water clarity and removes turbidity.</p>
+      <button onclick="orderProduct('Water Clear')">Order on WhatsApp</button>
+      <button onclick="orderNow('Water Clear')" style="background-color:#ff9800; margin-left:5px;">Order Now</button>
+    </div>
+
+    <!-- Aquatic Venture -->
+    <div class="product" data-category="aquatic-venture">
+      <img src="images/aquatic-venture/venture1.png" alt="Filter Media" />
+      <h4>Filter Media</h4>
+      <p>High-efficiency bio media for clean aquariums.</p>
+      <button onclick="orderProduct('Filter Media')">Order on WhatsApp</button>
+      <button onclick="orderNow('Filter Media')" style="background-color:#ff9800; margin-left:5px;">Order Now</button>
+    </div>
+  </div>
+
+  <script>
 <script>
-let selectedProduct = '';
-let productPrice = 0;
-
-// Open popup form
-function openForm(product, price) {
-  selectedProduct = product;
-  productPrice = price;
-  document.getElementById('orderPopup').style.display = 'flex';
-}
-
-// Close form
-function closeForm() {
-  document.getElementById('orderPopup').style.display = 'none';
-}
-
-// Handle payment
-document.getElementById('payBtn').addEventListener('click', function() {
-  const name = document.getElementById('custName').value.trim();
-  const address = document.getElementById('custAddress').value.trim();
-  const qty = parseInt(document.getElementById('custQty').value);
-
-  if (!name || !address || qty < 1) {
-    alert('Please fill all fields correctly.');
-    return;
-  }
-
-  const amount = productPrice * qty;
-  const upiId = "yogeshteli152002@okaxis"; // 🟢 change to your UPI ID
-  const merchantName = "Fortune Fishies";
-  const note = encodeURIComponent(`Order for ${selectedProduct} x${qty} by ${name}`);
-  const url = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(merchantName)}&am=${amount}&cu=INR&tn=${note}`;
-
-  // Optional: Send WhatsApp message after payment
-  const whatsappMsg = encodeURIComponent(`New order placed:\nProduct: ${selectedProduct}\nQuantity: ${qty}\nName: ${name}\nAddress: ${address}\nAmount: ₹${amount}`);
-  const whatsappLink = `https://wa.me/918108853280?text=${whatsappMsg}`; // 🔵 change 91XXXXXXXXXX to your WhatsApp number
-
-  window.location.href = url; // open GPay / UPI app
-  setTimeout(() => {
-    window.open(whatsappLink, "_blank");
-  }, 4000); // after 4 sec open WhatsApp message
+/* 🔍 Search Filter */
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keyup', function() {
+  const filter = searchInput.value.toLowerCase();
+  const products = document.querySelectorAll('.product');
+  products.forEach(p => {
+    const name = p.querySelector('h4').textContent.toLowerCase();
+    p.style.display = name.includes(filter) ? '' : 'none';
+  });
 });
+
+/* 🧭 Category Filter */
+const menuLinks = document.querySelectorAll('nav ul li a');
+const allProducts = document.querySelectorAll('.product');
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const category = link.dataset.category;
+    allProducts.forEach(product => {
+      if (category === 'all') {
+        product.style.display = 'block';
+      } else {
+        product.style.display = product.dataset.category === category ? 'block' : 'none';
+      }
+    });
+  });
+});
+
+/* 💬 WhatsApp Order Button */
+function orderProduct(productName) {
+  const phone = "918108853280"; // your WhatsApp number (no +)
+  const message = `Hi, I want to order ${productName}`;
+  const url = `https://developers.google.com/pay/api${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+/* 💳 ORDER NOW BUTTON with Form + Google Pay only */
+function orderNow(productName) {
+  const formHTML = `
+    <div id="orderFormModal" style="
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); display: flex; justify-content: center;
+      align-items: center; z-index: 2000;">
+      <div style="background: white; padding: 25px; border-radius: 12px; width: 320px; text-align: center;">
+        <h3>Order Now - ${productName}</h3>
+        <input id="custName" type="text" placeholder="Your Name" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <input id="custAddress" type="text" placeholder="Your Address" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <input id="custQty" type="number" placeholder="Quantity" min="1" value="1" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <button id="confirmOrder" style="background:#25D366; color:white; border:none; padding:10px 15px; border-radius:8px; cursor:pointer;">Confirm & Pay</button>
+        <button onclick="document.getElementById('orderFormModal').remove()" style="margin-left:10px; background:#ccc; border:none; padding:10px 15px; border-radius:8px; cursor:pointer;">Cancel</button>
+      </div>
+    </div>`;
+  document.body.insertAdjacentHTML("beforeend", formHTML);
+
+  document.getElementById("confirmOrder").addEventListener("click", function() {
+   <script>
+function proceedToPay() {
+  const name = document.getElementById("custName").value;
+  const address = document.getElementById("custAddress").value;
+  const qty = document.getElementById("custQty").value;
+  const amount = qty * 250; // 💰 set your per-item price here
+
+  // ⚙️ Your UPI Payment link (edit "YOUR_UPI_ID" below)
+  const upiID = "7039123760@okbizaxis"; 
+  const upiName = "Fortune Fishies";
+  const note = encodeURIComponent(`Order by ${name}, Qty: ${qty}, Address: ${address}`);
+  const upiLink = `upi://pay?pa=${upiID}&pn=${encodeURIComponent(upiName)}&am=${amount}&cu=INR&tn=${note}`;
+
+  // 💡 Open UPI payment apps like Google Pay, PhonePe, Paytm, etc.
+  window.location.href = upiLink;
+}
+
+  <!-- 🌐 Floating Social Media Buttons -->
+<div class="floating-social">
+  <a href="https://www.instagram.com/fortunefishies" target="_blank" class="float-btn">
+    <img src="instagram.png" alt="Instagram">
+  </a>
+  <a href="https://www.facebook.com/fortune.fishies" target="_blank" class="float-btn">
+    <img src="facebook.png" alt="Facebook">
+  </a>
+</div>
+<!-- 🏪 Scrolling Shop Address -->
+  <div class="scroll-address modern">
+<div class="text">
+  📍 <a href="https://www.google.com/maps/dir/19.0010134,72.8397314/Shop+15,+Datainsight+Computer+Education,+Man+Opus,+Western+Express+Highway,+SBI+Bank,+MIDC,+Mira+Road+East,+Thane,+Maharashtra/@19.1367304,72.6955782,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3be7b1000ff13fe1:0x7399d22cad08c3c0!2m2!1d72.8804765!2d19.269436?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #fff; text-decoration: underline;">
+Fortune Fishies | Shop 15, Man Opus, Western Express Hwy, near SBI Bank, MIDC, Mira Road East, Thane, Mira Bhayandar, Maharashtra 401107 
+  </a> | 📞 +91-7039123760
+</div>
+
+</div>
+
+  <script>
+/* 🔍 Search Filter */
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('keyup', function() {
+  const filter = searchInput.value.toLowerCase();
+  const products = document.querySelectorAll('.product');
+  products.forEach(p => {
+    const name = p.querySelector('h4').textContent.toLowerCase();
+    p.style.display = name.includes(filter) ? '' : 'none';
+  });
+});
+
+/* 🧭 Category Filter */
+const menuLinks = document.querySelectorAll('nav ul li a');
+const allProducts = document.querySelectorAll('.product');
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const category = link.dataset.category;
+    allProducts.forEach(product => {
+      if (category === 'all') {
+        product.style.display = 'block';
+      } else {
+        product.style.display = product.dataset.category === category ? 'block' : 'none';
+      }
+    });
+  });
+});
+
+/* 💬 WhatsApp Order Button */
+function orderProduct(productName) {
+  const phone = "917039123760"; // your WhatsApp number (no +)
+  const message = `Hi, I want to order ${productName}`;
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+/* 💳 ORDER NOW BUTTON with Form + Google Pay only */
+function orderNow(productName) {
+  const formHTML = `
+    <div id="orderFormModal" style="
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); display: flex; justify-content: center;
+      align-items: center; z-index: 2000;">
+      <div style="background: white; padding: 25px; border-radius: 12px; width: 320px; text-align: center;">
+        <h3>Order Now - ${productName}</h3>
+        <input id="custName" type="text" placeholder="Your Name" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <input id="custAddress" type="text" placeholder="Your Address" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <input id="custQty" type="number" placeholder="Quantity" min="1" value="1" style="width: 90%; margin: 8px; padding: 8px;"><br>
+        <button id="confirmOrder" style="background:#25D366; color:white; border:none; padding:10px 15px; border-radius:8px; cursor:pointer;">Confirm & Pay</button>
+        <button onclick="document.getElementById('orderFormModal').remove()" style="margin-left:10px; background:#ccc; border:none; padding:10px 15px; border-radius:8px; cursor:pointer;">Cancel</button>
+      </div>
+    </div>`;
+  document.body.insertAdjacentHTML("beforeend", formHTML);
+
+  document.getElementById("confirmOrder").addEventListener("click", function() {
+    const name = document.getElementById("custName").value.trim();
+    const address = document.getElementById("custAddress").value.trim();
+    const qty = document.getElementById("custQty").value.trim();
+
+    if (!name || !address || !qty) {
+      alert("⚠️ Please fill all fields before proceeding.");
+      return;
+    }
+
+    const upiID = "7039123760@okbizaxis"; // 🟢 Your UPI ID
+    const pricePerItem = 100;              // 🏷️ Change price per item if needed
+    const amount = pricePerItem * qty;
+    const payeeName = "Fortune Fishies";
+
+    // 👇 Google Pay–specific payment link
+    const gpayLink = `intent://pay?pa=${upiID}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR&tn=${encodeURIComponent('Order for ' + productName)}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+
+    // open GPay directly
+    window.location.href = gpayLink;
+
+    // after 4 sec open WhatsApp message
+    const phone = "917039123760";
+    const message = `📦 New Order Received!\n\nProduct: ${productName}\nQuantity: ${qty}\nName: ${name}\nAddress: ${address}\nAmount: ₹${amount}\n\nPlease verify payment and process the order.`;
+    const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    setTimeout(() => {
+      window.open(whatsappLink, '_blank');
+      document.getElementById('orderFormModal').remove();
+    }, 4000);
+  });
+}
 </script>
 
 </body>
