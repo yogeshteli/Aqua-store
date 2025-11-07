@@ -528,7 +528,7 @@ function orderNow(productName) {
       return;
     }
 
-    const upiID = "7039123760@okbizaxis"; // 🟢 Your UPI ID
+    const upiID = "yogeshteli152002@okaxis"; // 🟢 Your UPI ID
     const pricePerItem = 100;              // 🏷️ Change price per item if needed
     const amount = pricePerItem * qty;
     const payeeName = "Fortune Fishies";
@@ -540,7 +540,7 @@ function orderNow(productName) {
     window.location.href = gpayLink;
 
     // after 4 sec open WhatsApp message
-    const phone = "917039123760";
+    const phone = "918108853280";
     const message = `📦 New Order Received!\n\nProduct: ${productName}\nQuantity: ${qty}\nName: ${name}\nAddress: ${address}\nAmount: ₹${amount}\n\nPlease verify payment and process the order.`;
     const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     setTimeout(() => {
