@@ -537,7 +537,8 @@ function orderNow(productName) {
     // 💬 Step 2: Send WhatsApp order after 5 sec
     const phone = "918108853280"; // your WhatsApp number
     const message = `📦 New Order Received!\n\nProduct: ${productName}\nQuantity: ${qty}\nName: ${name}\nAddress: ${address}\nAmount: ₹${amount}\n\nPlease verify payment and process the order.`;
-    const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    const whatsappLink = `upi://pay?pa=yogeshteli152002@okaxis&pn=YOUR_NAME&am=AMOUNT&cu=INR&tn=Payment for Fortune Fishies
+/${phone}?text=${encodeURIComponent(message)}`;
     setTimeout(() => {
       window.open(whatsappLink, '_blank');
       document.getElementById('orderFormModal').remove();
@@ -621,7 +622,8 @@ function orderNow(productName) {
     // 💬 Step 2: Send WhatsApp order after 5 sec
     const phone = "918108853280"; // your WhatsApp number
     const message = `📦 New Order Received!\n\nProduct: ${productName}\nQuantity: ${qty}\nName: ${name}\nAddress: ${address}\nAmount: ₹${amount}\n\nPlease verify payment and process the order.`;
-    const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    const whatsappLink = `upi://pay?pa=yogeshteli152002@okaxis&pn=YOUR_NAME&am=AMOUNT&cu=INR&tn=Payment for Fortune Fishies
+${phone}?text=${encodeURIComponent(message)}`;
     setTimeout(() => {
       window.open(whatsappLink, '_blank');
       document.getElementById('orderFormModal').remove();
